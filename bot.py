@@ -1813,12 +1813,11 @@ async def autooff(update: Update, context: ContextTypes.DEFAULT_TYPE):
 def main():
     init_db()
     app = Application.builder().token(BOT_TOKEN).build()
-
+    
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("help", start))
     app.add_handler(CommandHandler("balance", balance))
     app.add_handler(CommandHandler("setdana", setdana))
-    app.add_handler(CommandHandler("top", top))
     app.add_handler(CommandHandler("lastwin", lastwin))
     app.add_handler(CommandHandler("bet", bet))
     app.add_handler(CommandHandler("rekap", rekap))
@@ -1833,7 +1832,7 @@ def main():
     app.add_handler(CommandHandler("autooff", autooff))
     app.add_handler(CallbackQueryHandler(kirim_bukti_callback, pattern="kirim_bukti"))
     app.add_handler(MessageHandler(filters.PHOTO, handle_bukti))
-
+    
     print("🤖 Bot dadu berjalan...")
     app.run_polling()
 
